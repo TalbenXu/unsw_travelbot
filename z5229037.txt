@@ -1,0 +1,9 @@
+Week 1
+I together with my friends formed the Team and set up our group chat, in advance to the actual class start. 
+We access our skill set and compare with the technology each project might need. 
+And we attend the class together, and lab, tring to find a suitable proposal for our team.
+
+Week 2
+In the lecture, we learn the scrum method to do the agile development, and after that we 
+set up the jira account. And we upper load our's roadmap. And through the disscuss in person 
+and online, we finally decide to do the first project - the chatbox.
