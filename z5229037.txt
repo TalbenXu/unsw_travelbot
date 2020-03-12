@@ -7,3 +7,15 @@ Week 2
 In the lecture, we learn the scrum method to do the agile development, and after that we 
 set up the jira account. And we upper load our's roadmap. And through the disscuss in person 
 and online, we finally decide to do the first project - the chatbox.
+
+Week 3
+This week, first part we focus to finish our proposal. We discuss the nowadays technology, and advantage and drawback of them. 
+We briefly talk about our exist skill set, and trying to make most of them to fulfill our project.
+I mostly in charge of the Epic portion of proposal, divide the whole project to 4 individual sprint.
+And then i trying my best to wrap my head to use dialogflow agent, context etc, jargon.
+
+Week 4
+I review the basic of HTML, CSS and Javascript, build up the index.html static file. And set up the node.js backend 
+server, using the express framework to build the connection to front-end and back-end. Set up the redirect page, and
+login, signup page. And then using the created agent of dialog API receive the data get from input of the page and sent back
+response, then using the ASC to render the data on the webpage.
