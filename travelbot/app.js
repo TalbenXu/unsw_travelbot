@@ -1,8 +1,20 @@
 const express = require('express'); 
 const path = require('path');
+const mysql = require('mysql');
+
 const app = express();
 const html = path.join(__dirname+'/public/html');
 const port = process.argv[2] || 3000;
+const con = mysql.createConnection({
+  host: "localhost",
+  user: "root",
+  password: "baobeiwoai0Z"
+});
+
+con.connect(function(err) {
+    if (err) throw err;
+    console.log("Connected!");
+});
 
 app.use(express.json());
 app.use(express.static('public'));
@@ -24,7 +36,13 @@ app.get('/signup',function(req,res){
 });
 
 app.post('/api/signup',function(req,res){
-  console.log(req.body);      
+  console.log(req.body);
+  console.log(req.body.username)
+  let sql = "INSERT INTO `travelbot`.`User` (`username`, `emal`, `password`) VALUES ('" + req.body.username + "','"+ req.body.email + "','" + req.body.password + "');";  
+  con.query(sql, function (err, result) {
+    if (err) throw err;
+    console.log("Result: " + JSON.stringify(result));
+  });    
   res.send(req.body); 
 });
 
