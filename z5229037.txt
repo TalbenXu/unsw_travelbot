@@ -18,4 +18,4 @@ Week 4
 I review the basic of HTML, CSS and Javascript, build up the index.html static file. And set up the node.js backend 
 server, using the express framework to build the connection to front-end and back-end. Set up the redirect page, and
 login, signup page. And then using the created agent of dialog API receive the data get from input of the page and sent back
-response, then using the ASC to render the data on the webpage.
+response, then using the ASC to render the data on the webpage. Get a pretty interface of login and signup.
