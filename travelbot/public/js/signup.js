@@ -1,10 +1,14 @@
-const signupButton = document.getElementById('signup');
+const button = document.querySelector('.btn')
+const form   = document.querySelector('.form')
 
 function tosignup(){
+    form.classList.add('form--no') 
     const username = document.getElementById('username').value;
     const password = document.getElementById('password').value;
-    const data = {username:username, password:password};
-    console.log(`register ${data}... to /api/signup `);
+    const email = document.getElementById('email').value;
+    const data = {username:username, email:email, password:password};
+    console.log(data)
+    console.log(`register ${JSON.stringify(data)} to /api/signup` );
 
     fetch('/api/signup', {
         method: 'POST',
@@ -16,4 +20,4 @@ function tosignup(){
     .then((response) =>console.log('Success:', response));
 } ;
 
-signupButton.addEventListener('click', tosignup);
+button.addEventListener('click', tosignup);

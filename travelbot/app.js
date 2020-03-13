@@ -1,30 +1,33 @@
-const express = require('express');
-const app = express();
+const express = require('express'); 
 const path = require('path');
-const html = path.join(__dirname+'/public/html')
+const app = express();
+const html = path.join(__dirname+'/public/html');
+const port = process.argv[2] || 3000;
 
 app.use(express.json());
 app.use(express.static('public'));
+app.use(function (req, res, next) {
+  console.log('Request Type:', req.method, 'Request URL:', req.originalUrl)
+  next()
+});
+
 app.get('/',function(req,res){
   res.sendFile(path.join(html+'/index.html'));
-  //__dirname : It will resolve to your project folder.
 });
 
 app.get('/login',function(req,res){
   res.sendFile(path.join(html+'/login.html'));
-  //__dirname : It will resolve to your project folder.
 });
 
 app.get('/signup',function(req,res){
   res.sendFile(path.join(html+'/signup.html'));
-  //__dirname : It will resolve to your project folder.
 });
 
 app.post('/api/signup',function(req,res){
-  console.log(req.body);      // your JSON
+  console.log(req.body);      
   res.send(req.body); 
-  //__dirname : It will resolve to your project folder.
 });
-app.listen(process.env.port || 3000);
-console.log('Running at Port 3000'); 
+
+app.listen(port);
+console.log(`Running at Port ${port}`); 
 
