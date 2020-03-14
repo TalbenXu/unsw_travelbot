@@ -80,7 +80,22 @@
         margin-left: 100px;
         float: left;
     }
+    .chatbutton {
+    background-color: #f4511e;
+    border: none;
+    color: white;
+    padding: 16px 32px;
+    text-align: center;
+    font-size: 16px;
+    margin: 4px 2px;
+    opacity: 0.6;
+    transition: 0.3s;
+    display: inline-block;
+    text-decoration: none;
+    cursor: pointer;
+    }
 
+    .button:hover {opacity: 1}
     
     body {
 
@@ -116,7 +131,10 @@
             padding: 1em;
         }
     }
-    </style>    
+    </style> 
+    <link rel="stylesheet" href="../css/kv.css" />
+    <link rel="stylesheet" href="../css/min.css" />
+    <link rel="stylesheet" href="../css/theme-default.css" />       
 </head>
     
 <body>
@@ -153,14 +171,33 @@
         <video preload="auto" autoplay="autoplay" loop="loop" muted="" width="100%" height="100%"><source src="https://landbot.io/wp-content/uploads/2019/03/create-chatbot-conversation.mp4" type="video/mp4">Your browser does not support the video tag.</video>
         <p id="title"><a href="https://github.com/unsw-cse-comp3900-9900/capstone-project-group-chat">Github...</a></p>
     </div>
-    <div id="chatbot">    
-        <iframe
-            allow="microphone;"
-            width="350"
-            height="430"
-            src="https://console.dialogflow.com/api-client/demo/embedded/ticketbot">
-        </iframe>
+    <div class="botui-app-container" id="my-botui-app" style="position: fixed;bottom: 60px;right: 25px;border: 12px ridge rgba(164,161,33,0.46);
+    border-radius: 0px; display:none" >
+        
+        <bot-ui></bot-ui>
     </div>
+    
+    <button class = "chatbutton" onclick="myFunction()" id = "chatbutton" style="position: fixed;bottom: 0px;right: 0px;">chatbot switch</button>
+    <script>
+        function myFunction() {
+            var obt=document.getElementById("chatbutton");
+            var odiv=document.getElementById("my-botui-app");
+            if(odiv.style.display=="none"){
+            odiv.style.display="block";
+            obt.value="隐藏模块";
+            }
+            else{
+            odiv.style.display="none";
+            obt.value="显示模块";
+            }
+        }
+        </script>
+
+      <!--#3 Javascript Files-->
+      <script src="https://cdn.jsdelivr.net/vue/latest/vue.min.js"></script>
+      <script src="https://cdn.jsdelivr.net/npm/botui/build/botui.js"></script>
+      <script src="../js/dialogflow.js"></script>
+      
     
 </body>
 </html>

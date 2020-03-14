@@ -24,7 +24,7 @@ app.use(function (req, res, next) {
 });
 
 app.get('/',function(req,res){
-  res.sendFile(path.join(html+'/index.html'));
+  res.sendFile(path.join(__dirname + '/public/index.html'));
 });
 
 app.get('/login',function(req,res){
@@ -43,6 +43,17 @@ app.post('/api/signup',function(req,res){
     if (err) throw err;
     console.log("Result: " + JSON.stringify(result));
   });    
+  res.send(req.body); 
+});
+
+app.post('/api/login',function(req,res){
+  console.log(req.body);
+  console.log(req.body.username)
+  // let sql = "INSERT INTO `travelbot`.`User` (`username`, `emal`, `password`) VALUES ('" + req.body.username + "','"+ req.body.email + "','" + req.body.password + "');";  
+  // con.query(sql, function (err, result) {
+  //   if (err) throw err;
+  //   console.log("Result: " + JSON.stringify(result));
+  // });    
   res.send(req.body); 
 });
 
