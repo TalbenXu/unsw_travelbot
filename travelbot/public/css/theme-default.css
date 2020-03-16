@@ -1,7 +1,7 @@
 @import url(https://fonts.googleapis.com/css?family=Open+Sans);
 .botui-container{
     font-size:14px;
-    background-color:rgb(198, 225, 233);
+    background-color: rgba(102, 102, 100, 0.2);
     font-family:"Open Sans",sans-serif
 }
 .botui-messages-container{padding:10px 20px}
