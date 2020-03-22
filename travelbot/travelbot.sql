@@ -114,3 +114,28 @@ create table Users_rate_Chatting (
 COMMENT='users rate after chatting';
 
 
+
+-- INSERT DATA TEST
+
+-- Users table
+-- user_id, family_name, given_name, displayed_name, email_address, password, account_balance     int(8),
+INSERT INTO Users (user_id, family_name, given_name, displayed_name, email_address, password, account_balance)
+        VALUES (1, 'Tom', 'Green', 'Cat_Tom', 'tomcat@gmail.com', '123456', 1000);
+INSERT INTO Users (user_id, family_name, given_name, displayed_name, email_address, password, account_balance)
+        VALUES (2, 'Jim', 'Green', 'dog_Jim', 'dogjim@gmail.com', '123456', 900);
+INSERT INTO Users (user_id, family_name, given_name, displayed_name, email_address, password, account_balance)
+        VALUES (3, 'Lily', 'Green', 'Pig_Lily', 'piglily@gmail.com', '123456', 800);
+INSERT INTO Users (user_id, family_name, given_name, displayed_name, email_address, password, account_balance)
+        VALUES (4, 'Jeremy', 'Green', 'Cat_Jeremy', 'jeremycat@gmail.com', '123456', 1000);
+INSERT INTO Users (user_id, family_name, given_name, displayed_name, email_address, password, account_balance)
+        VALUES (5, 'Bruce', 'Green', 'Cat_Bruce', 'brucecat@gmail.com', '123456', 500);
+INSERT INTO Users (user_id, family_name, given_name, displayed_name, email_address, password, account_balance)
+        VALUES (6, 'Bob', 'Green', 'Cat_Bob', 'bobcat@gmail.com', '123456', 10000);
+INSERT INTO Users (user_id, family_name, given_name, displayed_name, email_address, password, account_balance)
+        VALUES (7, 'Arilra', 'Green', 'Cat_Arilra', 'arilracat@gmail.com', '123456', 1450);
+INSERT INTO Users (user_id, family_name, given_name, displayed_name, email_address, password, account_balance)
+        VALUES (8, 'Gina', 'Green', 'Cat_Gina', 'ginacat@gmail.com', '123456', 1330);
+INSERT INTO Users (family_name, given_name, displayed_name, email_address, password, account_balance)
+        VALUES ('Luna', 'Green', 'Cat_Luna', 'lunacat@gmail.com', '123456', 10500);
+INSERT INTO Users (family_name, given_name, displayed_name, email_address, password, account_balance)
+        VALUES ('Jimmy', 'Green', 'Cat_Jimmy', 'jimmycat@gmail.com', '123456', 670);
