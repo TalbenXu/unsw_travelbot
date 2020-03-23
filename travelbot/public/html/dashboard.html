@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html >
+<head >
+<meta charset="utf-8">
+<title >user_information</title>
+<link type="text/css" rel="stylesheet" href={{ url_for('static', filename='../css/login.css') }}> </link>
+</head>
+<body>
+{% if  message %}
+<p style="color:red">{{ message }} </p>
+{% endif %}
+
+<div class="header">
+  <h1 class="headerLogo"><a title="System of smart chat bot" target="_blank" href="#"><img alt="logo" src=" ../images/33571584861166_.pic_hd.jpg"></a></h1>
+</div>
+
+{#<div class="picture">#}
+{#  <h1 class="picture_register"><a title="Picture for register" target="_blank" href="#"><img alt="logo" src="../images/33581584861168_.pic_hd.jpg"></a></h1>#}
+{#</div>#}
+<div class="banner">
+
+<div class="login-aside">
+  <div id="o-box-up"></div>
+  <div id="o-box-down"  style="table-layout:fixed;">
+   <div class="error-box"></div>
+            <p style="color:white;font-size:20px;">Your account number<br> <input name="username" value="{{ username }}" type="text"/></p>
+            <p style="color:white;font-size:20px;">Your your password <br> <input name="password" type="password" type="text"/></p>
+            <p style="color:white;font-size:20px;">Your your email <br> <input name="email" type="text"/></p>
+            <p style="color:white;font-size:20px;">Your order information <br> <textarea style="width:200px; height:130px;"></textarea></p>
+        </div>
+
+</div>
+
+<div class="bd">
+		<ul>
+			<li style="background:url(static/images/register2.jpg) #CCE1F3 center 0 no-repeat;"><a target="_blank" href="#"></a></li>
+		</ul>
+</div>
+
+</body>
+</html>

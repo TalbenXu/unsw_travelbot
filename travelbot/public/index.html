@@ -9,6 +9,9 @@
 		<meta name="description" content="" />
 		<meta name="keywords" content="" />
 		<style type="text/css">
+		#login-form{
+			display: none;
+		}
 		.chatbutton {
 			background-color: rgba(102, 102, 100, 0.2);
 			border: none;
@@ -27,17 +30,22 @@
 		
 			.button:hover {opacity: 1}
 		</style>
+		<!-- <link rel="stylesheet" href="./css/signup.css" /> -->
 		<link rel="stylesheet" href="assets/css/main.css" />
-		<link rel="stylesheet" href="../css/kv.css" />
-		<link rel="stylesheet" href="../css/min.css" />
-		<link rel="stylesheet" href="../css/theme-default.css" />  
+		<link rel="stylesheet" href="./css/kv.css" />
+		<link rel="stylesheet" href="./css/min.css" />
+		<link rel="stylesheet" href="./css/theme-default.css" />  
 	</head>
 	<body class="is-preload">
-		<button class = "chatbutton" onclick="myFunction()" id = "chatbutton" style="position: fixed;bottom: 0px;right: 0px;">chatbot switch</button>
+		<button class = "chatbutton" onclick="myFunction()" id = "chatbutton" style="position: fixed;bottom: 0px;right: 0px;"></button>
 		<!-- Header -->
 			<header id="header">
 				<a class="logo" href="/">TravelBot</a>
 				<nav>
+					<a href="/">Home</a>
+					<a id="dashboard-text" href="/dashboard">Dashboard</a>
+					<a id="login-text" >Login</a> 
+					<a href="/signup">Signup</a>
 					<a href="#menu">Menu</a>
 				</nav>
 			</header>
@@ -54,10 +62,34 @@
 
 		<!-- Banner -->
 			<section id="banner">
-				<div class="inner">
+				<div class="inner" id="travel">
 					<h1>TravelBot</h1>
 					<p>A Highly intelligent travel personal assistant chatbot<br />
 					designed by <a href="https://github.com/unsw-cse-comp3900-9900/capstone-project-group-chat">GROUPCHAT</a> and released full machine's potential.</p>
+				</div>
+				<div class="inner" id="login-form" >
+				<div class="user" >
+						<header class="user__header">
+							<img src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/3219/logo.svg" alt="" />
+							<h1 class="user__title">TravelBot!</h1>
+						</header>
+						
+						<form class="form">
+							<div class="form__group">
+								<input type="text" placeholder="Username" id="username" class="form__input" />
+							</div>
+							
+							<div class="form__group">
+								<input type="email" placeholder="Email" id="email" class="form__input" />
+							</div>
+							
+							<div class="form__group">
+								<input type="password" placeholder="Password" id="password" class="form__input" />
+							</div>
+						
+							<a href="/"   style="text-decoration: none;"><button class="btn" type="button">Login</button></a>
+						</form>
+					</div>
 				</div>
 				<video autoplay loop muted playsinline src="images/banner.mp4"></video>
 			</section>
@@ -254,6 +286,7 @@ ZOOM is used for weekly online meeting.</p>
 			
 
 		<!-- Scripts -->
+			<script src="./js/main.js"></script>
 			<script src="assets/js/jquery.min.js"></script>
 			<script src="assets/js/browser.min.js"></script>
 			<script src="assets/js/breakpoints.min.js"></script>

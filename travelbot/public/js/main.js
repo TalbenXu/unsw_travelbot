@@ -1,49 +1,33 @@
-// get the data
-// sent post
-// console.log 
-const login = document.getElementById('login');
+const login = document.getElementById('login-text');
+const form = document.getElementById('login-form');
+const dashboard = document.getElementById('dashboard-text');
+const button = document.querySelector('.btn')
 
-function post(){
-    fetch('/api')
-    .then(res => console.log(res));
+function showForm(){
+    console.log("login being click");
+    form.style.display = "block";
 };
 
-login.addEventListener("click", post);
+function tosignup(){
+    form.classList.add('form--no') 
+    const username = document.getElementById('username').value;
+    const password = document.getElementById('password').value;
+    const email = document.getElementById('email').value;
+    const data = {username:username, email:email, password:password};
+    console.log(data)
+    console.log(`login ${JSON.stringify(data)} to /api/signup` );
 
+    fetch('/api/login', {
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/json',
+          },
+        body: JSON.stringify(data),
+    })
+    .then((response) =>console.log('Success:', response));
+    form.style.display = "block";
+    dashboard.style.visibility = "visible";
+} ;
 
-
-
-// var objPeople = [
-//     {
-//         username: "xupei",
-//         password: "123456"
-//     },
-//     {
-//         username: "chenkaiwen",
-//         password: "123456"
-//     },
-//     {
-//         username: "sunhaojun",
-//         password: "123456"
-//     }
-// ]
-
-// function getInfo() {
-// //    var username = document.getElementById("username").value
-// //    var password = document.getElementById("password").value
-// //    for(i=0; i<objPeople.length; i++){
-// //        if(username == objPeople[i].username && password==objPeople[i].password){
-// //            console.log(username + " is logged in!!!")
-// //            return
-// //        }
-// //    }
-//     console.log("incorrect username or password!")
-// }
-
-// function saveInfo() {
-// //    var username = document.getElementById("username").value
-// //    var password = document.getElementById("password").value
-// //    var a = {username:username, password:password}
-// //    objPeople.push(a)
-//     console.log("objPeople")
-// }
+button.addEventListener('click', tosignup);
+login.addEventListener("click", showForm);
