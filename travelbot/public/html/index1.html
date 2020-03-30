@@ -1,0 +1,203 @@
+<!doctype html>
+<html>
+<head>
+    <title>TravelBot - Home Page</title>
+
+    <meta charset="utf-8" />
+    <meta http-equiv="Content-type" content="text/html; charset=utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <style type="text/css">
+    #topbar {
+        width: 100%;
+        margin: 20px auto;
+        background-color: white;
+        height: 60px;
+    }
+    #middlebar {
+        width: 100%;
+        margin: 20px auto;
+        background-color: #0E61A2;
+        height: 300px;
+    }
+    #header {
+        padding-top: 50px;
+        LINE-HEIGHT:1px;
+        text-align: center;
+        color: #E88403;
+        font-size: 90%;
+        font-weight: bold;
+    }
+    #logo{
+        margin-left: 120px;
+        margin-top: 10px; 
+        margin-right: 180px;
+        float: left;
+    }
+    #getstarted-text{
+        color:#0E61A2;        
+    }
+    #getstarted-div{
+        float: right;
+        width: 120px;
+        height: 50px;
+        margin-right: 50px;
+        border: 2px solid #0E61A2;
+        border-radius: 15px;
+    }
+    #title{
+        color: #E88403;
+        font-size: 100%;
+        padding-left: 40px;
+    }
+    .content{
+        LINE-HEIGHT:10px;
+        color: white;
+        font-size: 300%;
+        text-align: center;
+        font-weight: 900;
+        
+    }
+    .clear{
+        clear: both;        
+    }
+    .signin-text{
+        color: #E88403;
+        font-size: 110%;
+        font-weight: 400;
+        position: relative;
+        top: 15px;
+        left: 15px;
+    }
+    .topbar-section {
+        float: left;
+        height: 110%;
+        margin-right: 60px;
+        
+    }
+    .page-container{
+        margin-top: 0;
+        width: 700px;
+        margin-left: 100px;
+        float: left;
+    }
+    .chatbutton {
+    background-color: #f4511e;
+    border: none;
+    color: white;
+    padding: 16px 32px;
+    text-align: center;
+    font-size: 16px;
+    margin: 4px 2px;
+    opacity: 0.6;
+    transition: 0.3s;
+    display: inline-block;
+    text-decoration: none;
+    cursor: pointer;
+    }
+
+    .button:hover {opacity: 1}
+    
+    body {
+
+        margin: 0;
+        padding: 0;
+        font-family: "Open Sans", "Helvetica Neue", Helvetica, Arial, sans-serif;
+        
+    }
+
+
+    #chatbot {
+        width: 500px;
+        margin-right: 100px;
+        float: right; 
+    }
+    iframe {
+        display:block;
+        margin-left: auto;   /* Automatic margin from left */
+        margin-right: auto; /* Automatic margin from right */
+    }
+    a:link, a:visited {
+        color: #38488f;
+        text-decoration: none;
+    }
+    @media (max-width: 700px) {
+        body {
+            background-color: #fff;
+        }
+        div {
+            width: auto;
+            margin: 0 auto;
+            border-radius: 0;
+            padding: 1em;
+        }
+    }
+    </style> 
+    <link rel="stylesheet" href="../css/kv.css" />
+    <link rel="stylesheet" href="../css/min.css" />
+    <link rel="stylesheet" href="../css/theme-default.css" />       
+</head>
+    
+<body>
+    <div id="topbar">
+        
+        <a  href="/"><img id="logo" src="./images/logo.png" width="200" ></a>
+        
+        <div id="home-div" class="topbar-section">
+            <a href="/"><span class="signin-text">Home</span></a>
+        </div>
+        
+        <div id="dashboard-div" class="topbar-section">
+            <a href="/login"><span class="signin-text">Dashboard</span></a>
+        </div>
+        
+        <div id="signin-div" class="topbar-section">
+            <a href="/login"><span class="signin-text">Sign in</span></a>
+        </div>
+        
+        <div id="getstarted-div" class="topbar-section">
+            <a href="/signup"><span id="getstarted-text" class="signin-text">Get Started</span></a>
+        </div>
+
+    </div>
+    
+    
+    <div id="middlebar" class="clear">
+        <p id="header">TravelBot</p>
+        <p class="content">Highly intelligent travel assistant chatbot</p>
+        <p class="content">Machine's potential</p>
+    </div>
+    
+    <div class="page-container">
+        <video preload="auto" autoplay="autoplay" loop="loop" muted="" width="100%" height="100%"><source src="https://landbot.io/wp-content/uploads/2019/03/create-chatbot-conversation.mp4" type="video/mp4">Your browser does not support the video tag.</video>
+        <p id="title"><a href="https://github.com/unsw-cse-comp3900-9900/capstone-project-group-chat">Github...</a></p>
+    </div>
+    <div class="botui-app-container" id="my-botui-app" style="position: fixed;bottom: 60px;right: 25px;border: 12px ridge rgba(164,161,33,0.46);
+    border-radius: 0px; display:none" >
+        
+        <bot-ui></bot-ui>
+    </div>
+    
+    <button class = "chatbutton" onclick="myFunction()" id = "chatbutton" style="position: fixed;bottom: 0px;right: 0px;">chatbot switch</button>
+    <script>
+        function myFunction() {
+            var obt=document.getElementById("chatbutton");
+            var odiv=document.getElementById("my-botui-app");
+            if(odiv.style.display=="none"){
+            odiv.style.display="block";
+            obt.value="隐藏模块";
+            }
+            else{
+            odiv.style.display="none";
+            obt.value="显示模块";
+            }
+        }
+        </script>
+
+      <!--#3 Javascript Files-->
+      <script src="https://cdn.jsdelivr.net/vue/latest/vue.min.js"></script>
+      <script src="https://cdn.jsdelivr.net/npm/botui/build/botui.js"></script>
+      <script src="../js/dialogflow.js"></script>
+      
+    
+</body>
+</html>

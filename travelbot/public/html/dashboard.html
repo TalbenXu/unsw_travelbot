@@ -1,41 +1,414 @@
-<!DOCTYPE html>
-<html >
-<head >
-<meta charset="utf-8">
-<title >user_information</title>
-<link type="text/css" rel="stylesheet" href={{ url_for('static', filename='../css/login.css') }}> </link>
-</head>
-<body>
-{% if  message %}
-<p style="color:red">{{ message }} </p>
-{% endif %}
+<!DOCTYPE HTML>
+<!--
+	Industrious by TEMPLATED
+	templated.co @templatedco
+	Released for free under the Creative Commons Attribution 3.0 license (templated.co/license)
+-->
+<html>
+	<head>
+		<title>User Dashboard</title>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+		<meta name="description" content="" />
+		<meta name="keywords" content="" />
+		<link rel="stylesheet" href="../assets/css/main.css" />
+		<link rel="stylesheet" href="../css/output_dash.css">
+		<link rel="stylesheet" href="../js/dash_js/tippy.js/dist/themes/light.css">
+	</head>
+	<body class="is-preload bg-grey-lighter font-sans antialiased" >
 
-<div class="header">
-  <h1 class="headerLogo"><a title="System of smart chat bot" target="_blank" href="#"><img alt="logo" src=" ../images/33571584861166_.pic_hd.jpg"></a></h1>
-</div>
+		<!-- Header -->
+			<header id="header">
+				<a class="logo" href="index.html">TravelBot</a>
+				<nav>
+					<!-- <a href="#menu">Menu</a> -->
+					<a href="index.html">Home</a>
+					<!-- <a href="dashboard.html">Dashboard</a> -->
+					<a href="dashboard.html">Dashboard</a>
+					<a href="login.html">Login</a>
+					<a href="signup.html">Signup</a>
+				</nav>
+			</header>
 
-{#<div class="picture">#}
-{#  <h1 class="picture_register"><a title="Picture for register" target="_blank" href="#"><img alt="logo" src="../images/33581584861168_.pic_hd.jpg"></a></h1>#}
-{#</div>#}
-<div class="banner">
+		<!-- Nav -->
+			 <!-- <nav id="menu">
+				<ul class="links">
+					<li><a href="index.html">Home</a></li>
+					<li><a href="dashboard.html">Dashboard</a></li>
+					<li><a href="generic.html">Generic</a></li>
+				</ul>
+			</nav>  -->
 
-<div class="login-aside">
-  <div id="o-box-up"></div>
-  <div id="o-box-down"  style="table-layout:fixed;">
-   <div class="error-box"></div>
-            <p style="color:white;font-size:20px;">Your account number<br> <input name="username" value="{{ username }}" type="text"/></p>
-            <p style="color:white;font-size:20px;">Your your password <br> <input name="password" type="password" type="text"/></p>
-            <p style="color:white;font-size:20px;">Your your email <br> <input name="email" type="text"/></p>
-            <p style="color:white;font-size:20px;">Your order information <br> <textarea style="width:200px; height:130px;"></textarea></p>
-        </div>
+		<!-- Heading -->
+			<div id="heading" >
+				<h1>Dashboard</h1>
+			</div>
+		<div class="fixed bg-grey-lighter pin z-50 flex justify-center items-center" id="loading">
+			<svg width="60px" height="60px" viewBox="0 0 60 60" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" id="morphing">
+				<g stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+					<g transform="translate(-1178.000000, -87.000000)">
+						<g transform="translate(1159.000000, 0.000000)">
+							<g transform="translate(0.000000, 87.000000)">
+								<g transform="translate(19.000000, 0.000000)">
+									<circle id="small-circle" fill="#5661B3" cx="30" cy="30" r="30"></circle>
+									<path id="moon" d="M30.5,49.7304688 C40.7172679,49.7304688 30.5,43.266096 30.5,33.0488281 C30.5,22.8315603 40.7172679,12 30.5,12 C20.2827321,12 11.0390625,20.6479665 11.0390625,30.8652344 C11.0390625,41.0825022 20.2827321,49.7304688 30.5,49.7304688 Z" fill="#F4E1E0"></path>
+									<circle id="big-circle" fill="#070707" cx="31" cy="31" r="11"></circle>
+								</g>
+							</g>
+						</g>
+					</g>
+				</g>
+			</svg>
+		</div>
+		
+		<!-- Main -->
+		<div class="flex">
+			<!-- Side Nav -->
+			<nav class="absolute lg:relative lg:flex lg:text-sm bg-indigo-darker lg:bg-transparent pin-l pin-r py-4 px-6 lg:pt-10 lg:pl-12 lg:pr-6 -mt-1 lg:mt-0 overflow-y-auto lg:w-1/5 lg:border-r z-40 hidden">
+				<ul class="list-reset mb-8 w-full">
+					<li class="ml-2 mb-4 flex">
+						<img src="../images/images_dash/home-default.svg" alt="home-icon" class="w-4 h-4 mr-2">
+						<div class="hover:cursor-pointer text-white lg:text-indigo-darkest no-underline font-medium mobile-home-trigger">Home</div>
+					</li>
+					<li class="ml-2 mb-4">
+						<div class="flex" id="sidenav-categories-trigger">
+							<img src="../images/images_dash/category-default.svg" alt="home-icon" class="w-4 h-4 mr-2">
+							<div class="hover:cursor-pointer text-white lg:text-indigo-darkest no-underline font-medium w-full relative">
+								Categories
+								<div class="pointer-events-none absolute pin-y pin-r flex items-center px-1 text-grey-darker" id="sidenav-icon">
+									<svg class="fill-current h-4 w-4" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20">
+										<path d="M9.293 12.95l.707.707L15.657 8l-1.414-1.414L10 10.828 5.757 6.586 4.343 8z" />
+									</svg>
+								</div>
+							</div>
+						</div>
+						<ul class="text-grey lg:text-grey-dark list-reset leading-loose mt-2" id="sidenav-categories">
+							<!-- <li class="hover:text-indigo-dark hover:cursor-pointer transition-normal ml-1 border-l border-grey-dark pl-4">Lifestyle</li> -->
+							<!-- <li class="hover:text-indigo-dark hover:cursor-pointer transition-normal ml-1 border-l border-grey-dark pl-4">Health &amp; Fitness</li> -->
+							<li class="text-indigo-lighter lg:text-indigo-darker font-medium flex justify-between items-center hover:cursor-pointer transition-normal ml-1 border-l border-grey-dark pl-4 mobile-home-trigger">
+								<span>Order History</span>
+								<span class="bg-indigo-dark text-white text-xs rounded-full px-2 leading-normal">7</span>
+							</li>
+							<!-- <li class="hover:text-indigo-dark hover:cursor-pointer transition-normal ml-1 border-l border-grey-dark pl-4">Music</li> -->
+						</ul>
+					</li>
+					<!-- <li class="ml-2 mb-4 flex">
+						<img src="./images/images_dash/wishlist-default.svg" alt="wishlist-icon" class="w-4 h-4 mr-2">
+						<div class="hover:cursor-pointer text-white lg:text-indigo-darkest no-underline font-medium mobile-home-trigger">Wishlist</div>
+					</li> -->
+					<li class="ml-2 mb-4 flex lg:hidden">
+						<img src="../images/images_dash/profile-default.svg" alt="profile-icon" class="w-4 h-4 mr-2">
+						<div class="hover:cursor-pointer text-white lg:text-indigo-darkest no-underline font-medium" id="mobile-profile-trigger">Profile</div>
+					</li>
+				</ul>
+			</nav>
+			<!-- Content -->
+			<div class="flex flex-1 flex-col md:px-6 pt-10" id="content">
+				<!-- Title -->
+				<div class="px-6 md:px-0 flex justify-between items-center -order-1">
+					<div>
+						<h2 class="font-normal">Order History</h2>
+						<p class="text-grey-darkest mt-2">To Be Used</p>
+					</div>
+					<!-- <button class="bg-indigo-dark hover:bg-indigo-darker text-white text-sm py-2 px-4 rounded-full transition-normal hover:shadow hover:translate-y-1 active:translate-y-1 focus:outline-none">Add New Book</button> -->
+				</div>
+				<!-- Desktop Stats -->
+				<div class="hidden px-6 md:px-0 mt-4 md:flex flex-wrap order-1 md:-order-1 md:shadow-md js-tab-pane" id="section-stats">
+					<div class="p-4 px-6 w-full md:w-1/2 rounded md:rounded-r-none bg-white shadow-md md:shadow-none">
+						<h4>Your most recently order in this category</h4>
+						<table class="mt-4 w-full">
+							<thead class="p-2 text-sm leading-loose border-b text-indigo">
+								<tr>
+									<td>Location Name</td>
+									<td class="text-center">Amount</td>
+									<td class="text-right">Order Date</td>
+								</tr>
+							</thead>
+							<tbody class="p-2 leading-loose text-sm">
+								<tr class="border-b">
+									<td class="py-2">Sydney Opera House</td>
+									<td class="py-2 text-center">$30</td>
+									<td class="py-2 text-right">04-May-2020</td>
+								</tr>
+								<!-- <tr class="border-b">
+									<td class="py-2">Sato Oki</td>
+									<td class="py-2 text-center">1/3</td>
+									<td class="py-2 text-right">Japan</td>
+								</tr>
+								<tr>
+									<td class="py-2">Amaya Arzuaga</td>
+									<td class="py-2 text-center">1/1</td>
+									<td class="py-2 text-right">Spain</td>
+								</tr> -->
+							</tbody>
+						</table>
+					</div>
+					<div class="w-full md:w-1/2 p-4 md:pt-12 md:pl-1 mt-4 md:mt-0 lg:pt-12 lg:pl-8 rounded md:rounded-r-none bg-white shadow-md md:shadow-none">
+						<div class="flex">
+							<div class="w-1/2">
+								<p class="text-indigo text-sm p-2">Payment Status</p>
+								<p class="font-medium text-sm pl-2">Successed</p>
+							</div>
+							<div class="w-1/2">
+								<p class="text-indigo text-sm p-2">Ticket Amount</p>
+								<p class="font-medium text-sm pl-2">4/7</p>
+							</div>
+						</div>
+						<!-- <div class="pt-6"> -->
+						<div class="flex"> <br></div>
+						<div class="flex">
+							<div class="w-1/2">
+								<p class="text-indigo text-sm p-2">Order Reference</p>
+								<p class="font-medium text-sm pl-2 leading-normal">AU2461132463124
+									<!-- <br><span class="font-normal">by Simon Garfield</span></p> -->
+							</div>
+							<div class="w-1/2">
+								<p class="text-indigo text-sm p-2">Ticket Status</p>
+								<p class="font-medium text-sm pl-2">Unused</p>
+							</div>
+						</div>
+					</div>
+				</div>
+				<!-- Filter -->
+				<div class="px-6 md:px-0 flex items-baseline justify-between border-b-2 border-grey-light mt-6 order-0 lg:order-1">
+					<h4 class="hidden md:inline-block text-grey-darkest font-normal">Have Used</h4>
+					<div>
+						<div class="inline-block md:hidden no-underline border-indigo pb-2 px-2 text-sm mr-2 text-indigo-darkest hover:cursor-pointer js-tab relative" data-tab="section-stats">Stats</div>
+						<div class="no-underline inline-block border-indigo pb-2 px-2 text-sm mr-2 text-indigo-darkest hover:cursor-pointer js-tab active relative" data-tab="section-library">History <span class="text-indigo text-xs">(7)</span></div>
+						<div class="no-underline inline-block border-indigo pb-2 px-2 text-sm text-indigo-darkest hover:cursor-pointer js-tab relative" data-tab="section-picks">Picks for you</div>
+					</div>
+				</div>
+				<!-- Library -->
+				<div class="hidden px-2 pt-2 md:px-0 flex-wrap order-2 pb-8 js-tab-pane active" id="section-library">
+					<div class="flex flex-row sm:flex-col items-center sm:items-start w-full xs:w-1/2 sm:w-1/3 md:w-1/5 p-4 js-book">
+						<!-- <img src="./images/images_dash/book-01.jpg" alt="book-01" class="w-1/3 sm:w-full shadow-md transition-normal hover:brighter hover:translate-y-1 hover:shadow-lg hover:border-indigo"> -->
+						<img src="../images/images_dash/site-01.jpg"  alt="book-01" class="w-1/3 sm:w-full shadow-md transition-normal hover:brighter hover:translate-y-1 hover:shadow-lg hover:border-indigo">
+						<div class="ml-3 sm:ml-0 w-2/3 sm:w-full">
+							<p class="text-sm my-2 font-medium sm:font-normal">Opera House <br>May 2020</p>
+							<p class="block sm:hidden mt-2 mb-3 text-sm leading-medium">Eu quo donec pellentesque, urna velit. Ultrices ante iaculis ligula praesent.</p>
+							<label for="" class="hidden sm:inline-block rounded-full libre-bg-grey text-white px-2 py-1/2 text-xs">Loaned</label>
+							<div class="block sm:hidden relative">
+								<select class="block appearance-none w-full text-sm bg-white border border-grey-light hover:border-grey pl-3 py-1 pr-8 rounded shadow leading-normal focus:outline-none focus:shadow-outline">
+									<option>Start</option>
+									<option>Loaned</option>
+									<option selected>Finished</option>
+								</select>
+								<div class="pointer-events-none absolute pin-y pin-r flex items-center px-2 text-grey-darker">
+									<svg class="fill-current h-4 w-4" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20">
+										<path d="M9.293 12.95l.707.707L15.657 8l-1.414-1.414L10 10.828 5.757 6.586 4.343 8z" />
+									</svg>
+								</div>
+							</div>
+						</div>
+					</div>
+					<div class="flex flex-row sm:flex-col items-center sm:items-start w-full xs:w-1/2 sm:w-1/3 md:w-1/5 p-4">
+						<img src="../images/images_dash/site-03.jpg" width="580" height="780"  alt="book-03" class="w-1/3 sm:w-full shadow-md transition-normal hover:brighter hover:translate-y-1 hover:shadow-lg hover:border-indigo js-book">
+						<div class="ml-3 sm:ml-0 w-2/3 sm:w-full">
+							<p class="text-sm my-2 font-medium sm:font-normal">Great Barrier Reef Apr 2020</p>
+							<p class="block sm:hidden mt-2 mb-3 text-sm leading-medium">Eu quo donec pellentesque, urna velit. Ultrices ante iaculis ligula praesent.</p>
+							<label for="" class="hidden sm:inline-block rounded-full libre-bg-pink text-white px-2 py-1/2 text-xs">Reading</label>
+							<div class="block sm:hidden relative">
+								<select class="block appearance-none w-full text-sm bg-white border border-grey-light hover:border-grey pl-3 py-1 pr-8 rounded shadow leading-normal focus:outline-none focus:shadow-outline">
+									<option>Start</option>
+									<option>Loaned</option>
+									<option selected>Finished</option>
+								</select>
+								<div class="pointer-events-none absolute pin-y pin-r flex items-center px-2 text-grey-darker">
+									<svg class="fill-current h-4 w-4" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20">
+										<path d="M9.293 12.95l.707.707L15.657 8l-1.414-1.414L10 10.828 5.757 6.586 4.343 8z" />
+									</svg>
+								</div>
+							</div>
+						</div>
+					</div>
+					<!-- <div class="tlinks">Collect from <a href="http://www.cssmoban.com/" >建站模板</a></div> -->
+					<div class="flex flex-row sm:flex-col items-center sm:items-start w-full xs:w-1/2 sm:w-1/3 md:w-1/5 p-4">
+						<img src="../images/images_dash/site-02.jpg" width="580" height="780" alt="book-02" class="w-1/3 sm:w-full shadow-md transition-normal hover:brighter hover:translate-y-1 hover:shadow-lg hover:border-indigo js-book">
+						<div class="ml-3 sm:ml-0 w-2/3 sm:w-full">
+							<p class="text-sm my-2 font-medium sm:font-normal">The Great Wall<br> Aug 2019</p>
+							<p class="block sm:hidden mt-2 mb-3 text-sm leading-medium">Eu quo donec pellentesque, urna velit. Ultrices ante iaculis ligula praesent.</p>
+							<label for="" class="hidden sm:inline-block rounded-full libre-bg-yellow text-white px-2 py-1/2 text-xs">Started</label>
+							<div class="block sm:hidden relative">
+								<select class="block appearance-none w-full text-sm bg-white border border-grey-light hover:border-grey pl-3 py-1 pr-8 rounded shadow leading-normal focus:outline-none focus:shadow-outline">
+									<option>Start</option>
+									<option>Loaned</option>
+									<option>Reading</option>
+									<option selected>Finished</option>
+								</select>
+								<div class="pointer-events-none absolute pin-y pin-r flex items-center px-2 text-grey-darker">
+									<svg class="fill-current h-4 w-4" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20">
+										<path d="M9.293 12.95l.707.707L15.657 8l-1.414-1.414L10 10.828 5.757 6.586 4.343 8z" />
+									</svg>
+								</div>
+							</div>
+						</div>
+					</div>
+					
+					<div class="flex flex-row sm:flex-col items-center sm:items-start w-full xs:w-1/2 sm:w-1/3 md:w-1/5 p-4">
+						<img src="../images/images_dash/site-04.jpg" width="580" height="780" alt="book-04" class="w-1/3 sm:w-full shadow-md transition-normal hover:brighter hover:translate-y-1 hover:shadow-lg hover:border-indigo js-book">
+						<div class="ml-3 sm:ml-0 w-2/3 sm:w-full">
+							<p class="text-sm my-2 font-medium sm:font-normal">Mount Fuji<br> Aug 2018</p>
+							<p class="block sm:hidden mt-2 mb-3 text-sm leading-medium">Eu quo donec pellentesque, urna velit. Ultrices ante iaculis ligula praesent.</p>
+							<label for="" class="hidden sm:inline-block rounded-full bg-indigo text-white px-2 py-1/2 text-xs">Finished</label>
+							<div class="block sm:hidden relative">
+								<select class="block appearance-none w-full text-sm bg-white border border-grey-light hover:border-grey pl-3 py-1 pr-8 rounded shadow leading-normal focus:outline-none focus:shadow-outline">
+									<option>Start</option>
+									<option>Loaned</option>
+									<option selected>Finished</option>
+								</select>
+								<div class="pointer-events-none absolute pin-y pin-r flex items-center px-2 text-grey-darker">
+									<svg class="fill-current h-4 w-4" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20">
+										<path d="M9.293 12.95l.707.707L15.657 8l-1.414-1.414L10 10.828 5.757 6.586 4.343 8z" />
+									</svg>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+				<!-- Picks -->
+				<div class="hidden flex-wrap order-2 pt-0 md:pt-6 md:pb-8 js-tab-pane" id="section-picks">
+					<div class="flex justify-start items-center p-5 px-6 w-full sm:w-1/2" style="background-color:#FBC164;">
+						<img src="../images/images_dash/pick-1.jpg" alt="pick" class="shadow-md w-1/3">
+						<div class="ml-4 mt-1 w-2/3">
+							<p class="font-medium">Popeye Jul 2018</p>
+							<p class="mt-3 text-sm">Eu quo donec pellentesque, urna velit. Ultrices ante iaculis ligula praesent</p>
+							<button class="shadow-md mt-3 bg-grey-lightest hover:bg-white text-indigo-darker text-xs py-2 px-4 rounded-full transition-normal hover:shadow hover:translate-y-1 active:translate-y-1 focus:outline-none">Add to Wishlist</button>
+						</div>
+					</div>
+					<div class="flex justify-start items-center p-5 px-6  w-full sm:w-1/2" style="background-color:#F1CECD;">
+						<img src="../images/images_dash/pick-2.jpg" alt="pick" class="shadow-md w-1/3">
+						<div class="ml-4 mt-1 w-2/3">
+							<p class="font-medium">Brutus Aug 2018</p>
+							<p class="mt-3 text-sm">Sapien eget, fermentum curabitur quis ut pharetra odio id, vitae eros eget maecenas, ullamcorper vitae.</p>
+							<button class="shadow-md mt-3 bg-grey-lightest hover:bg-white text-indigo-darker text-xs py-2 px-4 rounded-full transition-normal hover:shadow hover:translate-y-1 active:translate-y-1 focus:outline-none">Add to Wishlist</button>
+						</div>
+					</div>
+					<div class="flex justify-start items-center p-5 px-6  w-full sm:w-1/2" style="background-color:#ECE7E9;">
+						<img src="../images/images_dash/pick-3.jpg" alt="pick" class="shadow-md w-1/3">
+						<div class="ml-4 mt-1 w-2/3">
+							<p class="font-medium">Casa Aug 2018</p>
+							<p class="mt-3 text-sm">Curabitur quis ut pharetra odio id, vitae eros eget tristique maecenas, ullamcorper vitae.</p>
+							<button class="shadow-md mt-3 bg-grey-lightest hover:bg-white text-indigo-darker text-xs py-2 px-4 rounded-full transition-normal hover:shadow hover:translate-y-1 active:translate-y-1 focus:outline-none">Add to Wishlist</button>
+						</div>
+					</div>
+					<div class="flex justify-start items-center p-5 px-6  w-full sm:w-1/2" style="background-color:#D0E3E8;">
+						<img src="../images/images_dash/pick-4.jpg" alt="pick" class="shadow-md w-1/3">
+						<div class="ml-4 mt-1 w-2/3">
+							<p class="font-medium">SUPER: Jul 2018</p>
+							<p class="mt-3 text-sm">Eu quo donec pellentesque, urna velit. Ultrices ante iaculis ligula praesent</p>
+							<button class="shadow-md mt-3 bg-grey-lightest hover:bg-white text-indigo-darker text-xs py-2 px-4 rounded-full transition-normal hover:shadow hover:translate-y-1 active:translate-y-1 focus:outline-none">Add to Wishlist</button>
+						</div>
+					</div>
+				</div>
+			</div>
+			<!-- Profile -->
+			<div class="hidden absolute pin-b z-10 lg:relative lg:block w-full lg:w-1/5 bg-grey-lighter-2 px-6 pt-10" id="profile">
+				<div class="flex items-center mb-6">
+					<svg width="60px" height="60px" viewBox="0 0 60 60" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" id="avatar">
+						<g stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+							<g transform="translate(-1178.000000, -87.000000)">
+								<g transform="translate(1159.000000, 0.000000)">
+									<g transform="translate(0.000000, 87.000000)">
+										<g transform="translate(19.000000, 0.000000)">
+											<circle id="small-circle" fill="#5661B3" cx="30" cy="30" r="30"></circle>
+											<path id="moon" d="M30.5,49.7304688 C40.7172679,49.7304688 30.5,43.266096 30.5,33.0488281 C30.5,22.8315603 40.7172679,12 30.5,12 C20.2827321,12 11.0390625,20.6479665 11.0390625,30.8652344 C11.0390625,41.0825022 20.2827321,49.7304688 30.5,49.7304688 Z" fill="#F4E1E0"></path>
+											<circle id="big-circle" fill="#070707" cx="31" cy="31" r="11"></circle>
+										</g>
+									</g>
+								</g>
+							</g>
+						</g>
+					</svg>
+					<div class="ml-3">
+						<p>Amie Chen</p>
+						<p class="text-grey-dark mt-1 text-sm">Joined since 2017</p>
+					</div>
+				</div>
+				<div class="my-4 border-t pt-4">
+					<!-- <h3 class="text-indigo-dark font-normal">E-mail:<br> 
+						<strong>Amie345@gmail.com</strong></h3> -->
+					<!-- <h3 class="text-indigo-dark font-normal">Change Password:<br> 
+						</h3>
+						<input type="" name=""> -->
+					<h3 class="text-indigo-dark font-normal">Account Balance:<br> 
+						<strong>$3255</strong></h3>
+					<!-- <div class="flex flex-wrap -ml-2 justify-start items-center">
+						<img src="./images/images_dash/read-01.jpg" alt="read" class="w-1/6 lg:w-1/5 max-w-tiny shadow-md block m-2 transition-normal hover:brighter">
+						<img src="./images/images_dash/read-02.jpg" alt="read" class="w-1/6 lg:w-1/5 max-w-tiny shadow-md block m-2 transition-normal hover:brighter">
+						<img src="./images/images_dash/read-03.jpg" alt="read" class="w-1/6 lg:w-1/5 max-w-tiny shadow-md block m-2 transition-normal hover:brighter">
+						<img src="./images/images_dash/read-04.jpg" alt="read" class="w-1/6 lg:w-1/5 max-w-tiny shadow-md block m-2 transition-normal hover:brighter">
+					</div> -->
+				</div>
+				<div class="mt-6">
+					<!-- <p class="text-grey-dark mt-1 text-sm">Exchange Passwoord</p> -->
+					<div class="flex items-start mt-2">
+						<!-- <img src="./images/images_dash/read-04.jpg" alt="read" class="w-1/6 lg:w-1/5 max-w-tiny shadow-md block transition-normal hover:brighter"> -->
+						<!-- <div class="ml-3">
+							<p class="mt-1 leading-normal">Popular Lies* About Graphic Design</p>
+							<p class="text-indigo text-sm mt-1">15/250 pages</p>
+						</div> -->
+					</div>
+				</div>
+			</div>
+		</div>
+		<!-- js texiao -->
+		<div class="hidden p-4" id="popup">
+			<h3 class="font-medium">Popeye Aug 2018</h3>
+			<p class="text-sm mt-2 mb-3">Curabitur quis ut pharetra odio id, vitae eros eget tristique maecenas, ullamcorper vitae.</p>
+			<div class="relative">
+				<select class="block appearance-none w-full text-sm bg-white border border-grey-light hover:border-grey pl-3 py-1 pr-8 rounded shadow leading-normal focus:outline-none focus:shadow-outline" id="tippy-select">
+					<option>Start</option>
+					<option>Loaned</option>
+					<option selected>Finished</option>
+				</select>
+				<div class="pointer-events-none absolute pin-y pin-r flex items-center px-2 text-grey-darker">
+					<svg class="fill-current h-4 w-4" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20">
+						<path d="M9.293 12.95l.707.707L15.657 8l-1.414-1.414L10 10.828 5.757 6.586 4.343 8z" />
+					</svg>
+				</div>
+			</div>
+		</div>
+			
+		<!-- Footer -->
+			<footer id="footer">
+				<div class="inner">
+					<div class="content">
+						<section>
+							<h3>Accumsan montes viverra</h3>
+							<p>Nunc lacinia ante nunc ac lobortis. Interdum adipiscing gravida odio porttitor sem non mi integer non faucibus ornare mi ut ante amet placerat aliquet. Volutpat eu sed ante lacinia sapien lorem accumsan varius montes viverra nibh in adipiscing. Lorem ipsum dolor vestibulum ante ipsum primis in faucibus vestibulum. Blandit adipiscing eu felis iaculis volutpat ac adipiscing sed feugiat eu faucibus. Integer ac sed amet praesent. Nunc lacinia ante nunc ac gravida.</p>
+						</section>
+						<section>
+							<h4>Sem turpis amet semper</h4>
+							<ul class="alt">
+								<li><a href="#">Dolor pulvinar sed etiam.</a></li>
+								<li><a href="#">Etiam vel lorem sed amet.</a></li>
+								<li><a href="#">Felis enim feugiat viverra.</a></li>
+								<li><a href="#">Dolor pulvinar magna etiam.</a></li>
+							</ul>
+						</section>
+						<section>
+							<h4>Magna sed ipsum</h4>
+							<ul class="plain">
+								<li><a href="#"><i class="icon fa-twitter">&nbsp;</i>Twitter</a></li>
+								<li><a href="#"><i class="icon fa-facebook">&nbsp;</i>Facebook</a></li>
+								<li><a href="#"><i class="icon fa-instagram">&nbsp;</i>Instagram</a></li>
+								<li><a href="#"><i class="icon fa-github">&nbsp;</i>Github</a></li>
+							</ul>
+						</section>
+					</div>
+					<div class="copyright">
+						&copy; Untitled. Photos <a href="https://unsplash.co">Unsplash</a>, Video <a href="https://coverr.co">Coverr</a>.
+					</div>
+				</div>
+			</footer>
 
-</div>
+		<!-- Scripts -->
+			<script src="../assets/js/jquery.min.js"></script>
+			<script src="../assets/js/browser.min.js"></script>
+			<script src="../assets/js/breakpoints.min.js"></script>
+			<script src="../assets/js/util.js"></script>
+			<script src="../assets/js/main.js"></script>
+			<script src="../js/dash_js/bundle.js" async defer></script>
 
-<div class="bd">
-		<ul>
-			<li style="background:url(static/images/register2.jpg) #CCE1F3 center 0 no-repeat;"><a target="_blank" href="#"></a></li>
-		</ul>
-</div>
-
-</body>
+	</body>
 </html>
