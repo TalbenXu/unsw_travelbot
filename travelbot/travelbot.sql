@@ -26,6 +26,7 @@ COMMENT='users information';
 
 create table Photos (
     photo_id            int UNSIGNED AUTO_INCREMENT,
+    store_path          varchar(100),
     date_uploaded       timestamp,
     title               varchar(50),
     description         text default NULL,
@@ -71,7 +72,7 @@ COMMENT='payment methods';
 
 create table Orders (
     order_id            INT UNSIGNED AUTO_INCREMENT,
-    quantity            varchar(50),
+    quantity            integer(3),
     order_date          timestamp not NULL default current_timestamp,
     use_date            date,
     product_id          integer UNSIGNED,
@@ -89,7 +90,7 @@ create table Upload_Photos (
     user_id             integer UNSIGNED,
     primary key (up_photo_id),
     foreign key (relate_location_id)  references Locations(location_id),
-    foreign key (user_id)  references Users(user_id)
+    foreign key (user_id)  references Users(user_id)   
 )
 COMMENT='users upload photos recognition';
 
@@ -112,8 +113,6 @@ create table Users_rate_Chatting (
     foreign key (user_id) references Users(user_id)
 )
 COMMENT='users rate after chatting';
-
-
 
 -- INSERT DATA TEST
 
@@ -139,3 +138,51 @@ INSERT INTO Users (family_name, given_name, displayed_name, email_address, passw
         VALUES ('Luna', 'Green', 'Cat_Luna', 'lunacat@gmail.com', '123456', 10500);
 INSERT INTO Users (family_name, given_name, displayed_name, email_address, password, account_balance)
         VALUES ('Jimmy', 'Green', 'Cat_Jimmy', 'jimmycat@gmail.com', '123456', 670);
+
+-- Photos table
+-- photo_id int,date_uploaded timestamp, title varchar(50), description text default NULL,
+--  file_size integer, onws_location_id integer UNSIGNED,
+INSERT INTO Photos (store_path, date_uploaded, title, file_size)
+        VALUES ('/unset', '2020-01-01 10:14:00.45', 'Sydney Opera House', 50);
+INSERT INTO Photos (store_path, date_uploaded, title, file_size)
+        VALUES ('/unset', '2020-02-01 10:15:00.45', 'Sydney Bondi Beach', 50);
+
+-- Locations table
+-- location_id         INT UNSIGNED AUTO_INCREMENT,
+--     location_name       varchar(50),
+--     portrait            int UNSIGNED,
+INSERT INTO Locations (location_id, location_name, portrait) VALUES (1, 'Sydney Opera House', 1);
+INSERT INTO Locations (location_id, location_name, portrait) VALUES (2, 'Sydney Bondi Beach', 2);
+
+-- Products table
+-- product_id         INT UNSIGNED AUTO_INCREMENT,
+--     product_name       varchar(50),
+--     capacity           integer,
+--     stock              integer,
+--     price              integer,
+--     location_id        integer UNSIGNED,
+INSERT INTO Products (product_name, capacity, stock, price, location_id) VALUES ('Tom Concert', 100, 44, 198, 1);
+
+-- Payments table
+    -- payment_id          INT UNSIGNED AUTO_INCREMENT,
+    -- method_name         varchar(50),
+    -- amount              integer,
+    -- payment_date        timestamp,
+INSERT INTO Payments (method_name, amount) VALUES ('Master Card', 159);
+
+-- Orders table
+-- order_id, quantity, order_date, use_date, product_id, payment_id
+INSERT INTO Orders (quantity, order_date, use_date, product_id, payment_id)
+        VALUES (4,'2020-01-17 10:14:00.45', '2020-04-17', 1, 1);
+INSERT INTO Orders (quantity, order_date, use_date, product_id, payment_id)
+        VALUES (2,'2020-01-17 10:14:00.45', '2020-04-17', 1, 1);
+INSERT INTO Orders (quantity, order_date, use_date, product_id, payment_id)
+        VALUES (1,'2020-02-17 18:14:00.45', '2020-04-08', 1, 1);
+INSERT INTO Orders (quantity, order_date, use_date, product_id, payment_id)
+        VALUES (3,'2020-02-17 20:14:00.45', '2020-04-09', 1, 1);
+
+-- Users_Order_History table
+INSERT INTO Users_Order_History (user_id, order_id) VALUES (1, 1);
+INSERT INTO Users_Order_History (user_id, order_id) VALUES (1, 2);
+INSERT INTO Users_Order_History (user_id, order_id) VALUES (2, 3);
+INSERT INTO Users_Order_History (user_id, order_id) VALUES (2, 4);
