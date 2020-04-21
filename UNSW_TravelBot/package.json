@@ -1,0 +1,37 @@
+{
+	"name": "unsw_travelbot",
+	"version": "1.0.0",
+	"description": "Travel agency website impoverd by AI chatbot.",
+	"main": "app.js",
+	"scripts": {
+		"dev": "nodemon app.js",
+		"start": "node app.js"
+	},
+	"repository": {
+		"type": "git",
+		"url": "git+https://github.com/unsw-cse-comp3900-9900/capstone-project-group-chat.git"
+	},
+	"keywords": [
+		"UNSW",
+		"TravelBot",
+		"Talben_Xu",
+		"comp9900",
+		"Course_Project",
+		"Capstone_Project"
+	],
+	"author": "Talben_Xu",
+	"license": "MIT",
+	"bugs": {
+		"url": "https://github.com/unsw-cse-comp3900-9900/capstone-project-group-chat/issues"
+	},
+	"homepage": "https://github.com/unsw-cse-comp3900-9900/capstone-project-group-chat#readme",
+	"dependencies": {
+		"express": "^4.17.1",
+		"express-fileupload": "^1.1.7-alpha.2",
+		"fs": "0.0.1-security",
+		"https": "^1.0.0"
+	},
+	"devDependencies": {
+		"nodemon": "^1.18.9"
+	}
+}
