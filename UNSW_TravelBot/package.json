@@ -27,7 +27,7 @@
 	"homepage": "https://github.com/unsw-cse-comp3900-9900/capstone-project-group-chat#readme",
 	"dependencies": {
 		"express": "^4.17.1",
-		"express-fileupload": "^1.1.7-alpha.2",
+		"express-fileupload": "^1.1.9",
 		"fs": "0.0.1-security",
 		"https": "^1.0.0"
 	},
